@@ -8,6 +8,9 @@ namespace gerenciamentoProdutos
         static void Main(string[] args)
         {
             Usuario u = new Usuario();
+            Produto p = new Produto();
+
+            Console.WriteLine(p.dataProduto);
         }
     }
 }

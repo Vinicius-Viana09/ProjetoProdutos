@@ -4,25 +4,31 @@ namespace gerenciamentoProdutos.Classes
 {
     public class Usuario
     {
-        int cod;
+        string cod;
         string nome;
         string email;
         string senha;
+        public DateTime dataUsuario = DateTime.Now;
 
         public Usuario(){
             Console.WriteLine("Digite seu código");
-            cod = int.Parse(Console.ReadLine());
+            cod = Console.ReadLine();
             Console.WriteLine("Digite seu nome");
             nome = Console.ReadLine();
             Console.WriteLine("Digite seu email");
             email = Console.ReadLine();
             Console.WriteLine("Digite sua senha");
             senha = Console.ReadLine();
-            Console.WriteLine(DateTime.Now);
+            Console.WriteLine(dataUsuario);
+            
         }
 
         public void Deletar(){
-            cod = null;
+            cod =  null;
+            nome = null;
+            email = null;
+            senha = null;
         }
+
     }
 }
