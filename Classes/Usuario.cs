@@ -22,7 +22,7 @@ namespace gerenciamentoProdutos.Classes
         }
 
         public void Deletar(){
-            cod = null;
+            // cod = null;
         }
     }
 }
