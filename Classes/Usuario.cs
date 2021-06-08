@@ -1,14 +1,17 @@
 using System;
+using System.Collections.Generic;
 
 namespace gerenciamentoProdutos.Classes
 {
     public class Usuario
     {
-        string cod;
-        string nome;
-        string email;
-        string senha;
+        public string cod;
+        public string nome;
+        public string email;
+        public string senha;
         public DateTime dataUsuario = DateTime.Now;
+
+        public List<Usuario> listaUsuario = new List<Usuario>();
 
         public Usuario(){
             Console.WriteLine("Digite seu código");
@@ -22,13 +25,24 @@ namespace gerenciamentoProdutos.Classes
             Console.WriteLine(dataUsuario);
             
         }
-
-        public void Deletar(){
-            cod =  null;
-            nome = null;
-            email = null;
-            senha = null;
+        
+        public string Cadastrar(Usuario u){
+            listaUsuario.Add(u);
+            return "";
         }
+
+        public string Remover(Usuario u){
+            listaUsuario.Remove(u);
+            return "";
+        }
+
+        public void Listar(){
+            foreach (var item in listaUsuario)
+            {
+                Console.WriteLine($" {item.cod} {item.nome} {item.email} {item.senha} {item.dataUsuario}");
+            }
+        }
+
 
     }
 }
