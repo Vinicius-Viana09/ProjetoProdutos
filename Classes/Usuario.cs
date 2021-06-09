@@ -5,7 +5,7 @@ namespace gerenciamentoProdutos.Classes
     public class Usuario
     {
         int cod;
-        string nome;
+        public string nome;
         string email;
         string senha;
 
