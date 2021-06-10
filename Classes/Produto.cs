@@ -9,7 +9,7 @@ namespace gerenciamentoProdutos.Classes
         private float preco;
         private DateTime dataProduto = DateTime.Now;
         private Marca marca;
-        private string CadastradoPor;
+        private Usuario CadastradoPor = null;
         List<Produto> produtos = new List<Produto>();
 
         public string Cadastrar(Produto produto){
@@ -34,7 +34,6 @@ namespace gerenciamentoProdutos.Classes
             marca = _marcas.Find(item => item.codigoMarca == marcaProduto);
 
             Usuario u = new Usuario();
-            CadastradoPor = u.nome;
             return "Produto cadastrado com sucesso";
         }
 
