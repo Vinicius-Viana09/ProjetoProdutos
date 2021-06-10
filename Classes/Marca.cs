@@ -4,7 +4,7 @@ namespace gerenciamentoProdutos.Classes
 {
     public class Marca
     {
-        private int codigoMarca;
+        public int codigoMarca;
         private string nomeMarca;
         private DateTime dataMarca = DateTime.Now;
 
@@ -19,19 +19,13 @@ namespace gerenciamentoProdutos.Classes
             return "Marca cadastrada";
         }
 
-        public void ListarMarcas(){
-            foreach(Marca marca in marcas){
-                Console.WriteLine(marca);
-            }
+        public List<Marca> ListarMarcas(){
+            return marcas;
         }
 
         public string DeletarMarcas(){
             Console.WriteLine("Qual item você quer remover? (De preferência um número existente)");
-            foreach(Marca marca in marcas){
-                int i = 0;
-                Console.WriteLine($@"{i}- {marca}");
-                i++;
-            }
+            ListarMarcas();
             marcas.RemoveAt(int.Parse(Console.ReadLine()));
             return "Marca deletada com sucesso";
         }
