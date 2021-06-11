@@ -24,7 +24,11 @@ namespace gerenciamentoProdutos.Classes
         public string DeletarMarcas()
         {
             Console.WriteLine("Qual item você quer remover? (De preferência um número existente)");
-            ListarMarcas();
+            int i = 0;
+            foreach(Marca marca in marcas){
+                Console.WriteLine($@"{i}- {nomeMarca}");
+                i++;
+            }
             marcas.RemoveAt((int.Parse(Console.ReadLine()))-1);
             return "Marca deletada com sucesso";
         }
