@@ -25,10 +25,10 @@ namespace gerenciamentoProdutos.Classes
             usuarioDados.dataUsuario = DateTime.Now;
             u.Cadastrar(usuarioDados);
 
-            Console.WriteLine("fazendo login");
-            Console.WriteLine("confirme seu email");
+            Console.WriteLine("Fazendo login");
+            Console.WriteLine("Confirme seu email");
             usuarioDados.email = Console.ReadLine();
-            Console.WriteLine("confirme sua senha");
+            Console.WriteLine("Confirme sua senha");
             usuarioDados.senha = Console.ReadLine();
 
             Logar(usuarioDados);
@@ -36,10 +36,12 @@ namespace gerenciamentoProdutos.Classes
 
             do
             {
-                Console.WriteLine($@"Qual opção você quer?
-                1- Marca
-                2- Produto
-                3- Deslogar");
+                Console.WriteLine($@"-------------------------
+| Qual opção você quer? |
+| 1- Marca              |
+| 2- Produto            |
+| 3- Deslogar           |
+-------------------------");
 
                 switch (Console.ReadLine())
                 {
@@ -47,11 +49,13 @@ namespace gerenciamentoProdutos.Classes
                         string resposta;
                         do
                         {
-                            Console.WriteLine($@"Qual opção você quer?
-                1- Cadastrar marca
-                2- Deletar marca
-                3- Ver marcas
-                4- Voltar");
+                            Console.WriteLine($@"-------------------------
+                | Qual opção você quer? |
+                | 1- Cadastrar marca    |
+                | 2- Deletar marca      |
+                | 3- Ver marcas         |
+                | 4- Voltar             |
+                -------------------------");
                             resposta = Console.ReadLine();
                             switch (resposta)
                             {
@@ -71,7 +75,7 @@ namespace gerenciamentoProdutos.Classes
                                 case "3":
                                     // m.ListarMarcas();
                                     int i = 1;
-                                    foreach (Marca marca in m.ListaMarcas())
+                                    foreach (Marca marca in m.ListarMarcas())
                                     {
                                         Console.WriteLine($@"{i}- {marca.nomeMarca}");
                                         i++;
@@ -89,11 +93,14 @@ namespace gerenciamentoProdutos.Classes
                         break;
 
                     case "2":
-                        Console.WriteLine($@"Qual opção você quer?
-1- Cadastrar produto
-2- Deletar produto
-3- Ver produtos
-4- Voltar");
+                        Console.WriteLine($@"
+                        -------------------------
+| Qual opção você quer? |
+| 1- Cadastrar produto  |
+| 2- Deletar produto    |
+| 3- Ver produtos       |
+| 4- Voltar             |
+-------------------------");
                         resposta = Console.ReadLine();
                         do
                         {

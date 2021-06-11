@@ -24,7 +24,7 @@ namespace gerenciamentoProdutos.Classes
             this.preco = float.Parse(Console.ReadLine());
 
             Console.WriteLine("Qual marca deseja escolher?");
-            List<Marca> _marcas = m.ListaMarcas();
+            List<Marca> _marcas = m.ListarMarcas();
             foreach (Marca marca in _marcas)
             {
                 int i = 0;
