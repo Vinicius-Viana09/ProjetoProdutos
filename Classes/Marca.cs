@@ -16,7 +16,7 @@ namespace gerenciamentoProdutos.Classes
             return "Marca cadastrada";
         }
 
-        public List<Marca> ListarMarcas()
+        public List<Marca> ListaMarcas()
         {
             return marcas;
         }

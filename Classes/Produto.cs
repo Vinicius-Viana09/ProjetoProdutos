@@ -6,16 +6,16 @@ namespace gerenciamentoProdutos.Classes
     {
         public int codigoProduto;
         public string nomeProduto;
-        private float preco;
-        private DateTime dataProduto = DateTime.Now;
+        public float preco;
+        public DateTime dataProduto = DateTime.Now;
         private Marca marca;
-        private Usuario CadastradoPor = null;
+        public Usuario CadastradoPor;
         List<Produto> produtos = new List<Produto>();
 
         public string Cadastrar(Produto produto)
         {
             Marca m = new Marca();
-            this.codigoProduto = int.Parse(Console.ReadLine());
+            // this.codigoProduto = int.Parse(Console.ReadLine());
 
             Console.WriteLine("Insira o nome do produto");
             this.nomeProduto = Console.ReadLine();
@@ -24,11 +24,11 @@ namespace gerenciamentoProdutos.Classes
             this.preco = float.Parse(Console.ReadLine());
 
             Console.WriteLine("Qual marca deseja escolher?");
-            List<Marca> _marcas = m.ListaMarcas();
-            foreach (Marca marca in _marcas)
+            List<Marca> _marcas = marca.ListaMarcas();
+            int i = 1;
+            foreach (Marca marca in m.ListaMarcas())
             {
-                int i = 0;
-                Console.WriteLine($@"{i}- {marca}");
+                Console.WriteLine($@"{i}- {marca.nomeMarca}");
                 i++;
             }
             int marcaProduto = int.Parse(Console.ReadLine());

@@ -6,7 +6,10 @@ namespace gerenciamentoProdutos.Classes
     {
 
         public bool Logado = false;
+        int contador = 0;
         Usuario u = new Usuario();
+
+        public Usuario usuarioCadastrou = new Usuario();
 
         Marca m = new Marca();
         Produto p = new Produto();
@@ -26,9 +29,9 @@ namespace gerenciamentoProdutos.Classes
             u.Cadastrar(usuarioDados);
 
             Console.WriteLine("fazendo login");
-            Console.WriteLine("confirme seu email");
+            Console.WriteLine("Confirme seu email");
             usuarioDados.email = Console.ReadLine();
-            Console.WriteLine("confirme sua senha");
+            Console.WriteLine("Confirme sua senha");
             usuarioDados.senha = Console.ReadLine();
 
             Logar(usuarioDados);
@@ -36,10 +39,10 @@ namespace gerenciamentoProdutos.Classes
 
             do
             {
-                Console.WriteLine($@"Qual opção você quer?
-                1- Marca
-                2- Produto
-                3- Deslogar");
+Console.WriteLine($@"Qual opção você quer?
+1- Marca
+2- Produto
+3- Deslogar");
 
                 switch (Console.ReadLine())
                 {
@@ -47,23 +50,24 @@ namespace gerenciamentoProdutos.Classes
                         string resposta;
                         do
                         {
-                            Console.WriteLine($@"Qual opção você quer?
-                1- Cadastrar marca
-                2- Deletar marca
-                3- Ver marcas
-                4- Voltar");
+Console.WriteLine($@"Qual opção você quer?
+1- Cadastrar marca
+2- Deletar marca
+3- Ver marcas
+4- Voltar");
                             resposta = Console.ReadLine();
                             switch (resposta)
                             {
 
                                 case "1":
                                     Marca marcaDados = new Marca();
-                                    Console.WriteLine("Insira o código da marca");
-                                    m.codigoMarca = int.Parse(Console.ReadLine());
+                                    // Console.WriteLine("Insira o código da marca");
+                                    // marcaDados.codigoMarca = int.Parse(Console.ReadLine());
+                                    m.codigoMarca = contador++;
                                     Console.WriteLine("Insira o nome da marca");
-                                    m.nomeMarca = Console.ReadLine();
-                                    m.dataMarca = DateTime.Now;
-                                    m.CadastrarMarca(m);
+                                    marcaDados.nomeMarca = Console.ReadLine();
+                                    marcaDados.dataMarca = DateTime.Now;
+                                    m.CadastrarMarca(marcaDados);
                                     break;
                                 case "2":
                                     m.DeletarMarcas();
@@ -95,39 +99,45 @@ namespace gerenciamentoProdutos.Classes
 3- Ver produtos
 4- Voltar");
                         resposta = Console.ReadLine();
-                        do
-                        {
+                            bool sair = false;
+                        // do
+                        // {
                             switch (resposta)
                             {
                                 case "1":
                                     Produto produtoDados = new Produto();
                                     p.Cadastrar(produtoDados);
-                                    Console.WriteLine(produtoDados.Cadastrar(produtoDados));
+                                    Console.WriteLine("Produto cadastrado com sucesso");
+                                    sair = true;
                                     break;
 
                                 case "2":
                                     p.DeletarProduto();
                                     Console.WriteLine(p.DeletarProduto());
+                                    sair = true;
                                     break;
 
                                 case "3":
-                                    int i = 0;
-                                    foreach (Produto produto in p.ListaProdutos())
-                                    {
+                                    int i = 1;
+                                    foreach (Produto produto in p.ListaProdutos()){
                                         Console.WriteLine($@"{i}- {produto.nomeProduto}");
+                                        Console.WriteLine($@"{i}- {produto.dataProduto}");
+                                        Console.WriteLine($@"{i}- {produto.preco}");
+                                        Console.WriteLine($@"{i}- {p.CadastradoPor}");
                                         i++;
                                     }
                                     break;
 
                                 case "4":
                                     Console.WriteLine("Voltando");
+                                    sair = false;
                                     break;
 
                                 default:
                                 Console.WriteLine("Opção inválida");
                                 break;
                             }
-                        } while (resposta != "4");
+                        // } while (sair == false);
                         break;
 
                     case "3":
@@ -152,7 +162,8 @@ namespace gerenciamentoProdutos.Classes
             {
                 usuarioEncontrado = u.listaUsuario.Find(x => x.email == usuario.email);
                 Logado = true;
-                // CRIAR MENU AQUI!!!!
+                p.CadastradoPor = usuarioEncontrado;
+
             }
             else
             {
