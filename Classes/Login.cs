@@ -34,7 +34,8 @@ namespace gerenciamentoProdutos.Classes
             Logar(usuarioDados);
 
 
-            do{
+            do
+            {
                 Console.WriteLine($@"Qual opção você quer?
                 1- Marca
                 2- Produto
@@ -43,95 +44,102 @@ namespace gerenciamentoProdutos.Classes
                 switch (Console.ReadLine())
                 {
                     case "1":
-                    string resposta;
-                    do
-                    {
-                        Console.WriteLine($@"Qual opção você quer?
+                        string resposta;
+                        do
+                        {
+                            Console.WriteLine($@"Qual opção você quer?
                 1- Cadastrar marca
                 2- Deletar marca
                 3- Ver marcas
                 4- Voltar");
-                resposta = Console.ReadLine();
-                        switch (resposta)
-                        {
-                            
-                            case "1":
-                                Marca marcaDados = new Marca();
-                                Console.WriteLine("Insira o código da marca");
-                                m.codigoMarca = int.Parse(Console.ReadLine());
-                                Console.WriteLine("Insira o nome da marca");
-                                m.nomeMarca = Console.ReadLine();
-                                m.dataMarca = DateTime.Now;
-                                m.CadastrarMarca(m);
-                            break;
-                            case "2":
-                                m.DeletarMarcas();
+                            resposta = Console.ReadLine();
+                            switch (resposta)
+                            {
+
+                                case "1":
+                                    Marca marcaDados = new Marca();
+                                    Console.WriteLine("Insira o código da marca");
+                                    m.codigoMarca = int.Parse(Console.ReadLine());
+                                    Console.WriteLine("Insira o nome da marca");
+                                    m.nomeMarca = Console.ReadLine();
+                                    m.dataMarca = DateTime.Now;
+                                    m.CadastrarMarca(m);
+                                    break;
+                                case "2":
+                                    m.DeletarMarcas();
                                     break;
                                 case "3":
-                                // m.ListarMarcas();
+                                    // m.ListarMarcas();
                                     int i = 1;
-                                foreach(Marca marca in m.ListaMarcas()){
-                                    Console.WriteLine($@"{i}- {marca.nomeMarca}");
-                                    i++;
-                                }
-                            break;
-                            case "4":
-                            Console.WriteLine("Voltando");
-                            break;
+                                    foreach (Marca marca in m.ListaMarcas())
+                                    {
+                                        Console.WriteLine($@"{i}- {marca.nomeMarca}");
+                                        i++;
+                                    }
+                                    break;
+                                case "4":
+                                    Console.WriteLine("Voltando");
+                                    break;
 
-                            default:
-                            Console.WriteLine("Resposta inválida");
-                            break;
-                        }                    
-                    } while (resposta != "4");
-                                break;
+                                default:
+                                    Console.WriteLine("Resposta inválida");
+                                    break;
+                            }
+                        } while (resposta != "4");
+                        break;
 
                     case "2":
-Console.WriteLine($@"Qual opção você quer?
+                        Console.WriteLine($@"Qual opção você quer?
 1- Cadastrar produto
 2- Deletar produto
 3- Ver produtos
 4- Voltar");
-                    resposta = Console.ReadLine();
-                    do{
-                    switch (resposta)
-                    {
-                        case "1":
-                        Produto produtoDados = new Produto();
-                        p.Cadastrar(produtoDados);
-                        Console.WriteLine(produtoDados.Cadastrar(produtoDados));
-                        break;
+                        resposta = Console.ReadLine();
+                        do
+                        {
+                            switch (resposta)
+                            {
+                                case "1":
+                                    Produto produtoDados = new Produto();
+                                    p.Cadastrar(produtoDados);
+                                    Console.WriteLine(produtoDados.Cadastrar(produtoDados));
+                                    break;
 
-                        case "2":
-                        p.DeletarProduto();
-                        Console.WriteLine(p.DeletarProduto());
-                        break;
+                                case "2":
+                                    p.DeletarProduto();
+                                    Console.WriteLine(p.DeletarProduto());
+                                    break;
 
-                        case "3":
-                        int i = 0;
-                        foreach(Produto produto in p.ListaProdutos()){
-                            Console.WriteLine($@"{i}- {produto.nomeProduto}");
-                            i++;
-                        }
-                        break;
-                    }
-                    }while(resposta != "4");
+                                case "3":
+                                    int i = 0;
+                                    foreach (Produto produto in p.ListaProdutos())
+                                    {
+                                        Console.WriteLine($@"{i}- {produto.nomeProduto}");
+                                        i++;
+                                    }
+                                    break;
+
+                                case "4":
+                                    Console.WriteLine("Voltando");
+                                    break;
+
+                                default:
+                                Console.WriteLine("Opção inválida");
+                                break;
+                            }
+                        } while (resposta != "4");
                         break;
 
                     case "3":
                         Console.WriteLine($@"Deslogando...");
                         Console.WriteLine(Deslogar());
-                    break;
-
-                    case "4":
-                        Console.WriteLine("Voltando");
-                    break;
+                        break;
 
                     default:
-                    Console.WriteLine("Opção inválida");
-                    break;
+                        Console.WriteLine("Opção inválida");
+                        break;
                 }
-            }while(Logado == true);
+            } while (Logado == true);
 
 
         }
