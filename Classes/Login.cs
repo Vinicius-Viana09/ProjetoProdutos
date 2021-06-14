@@ -69,6 +69,7 @@ Console.WriteLine($@"Qual opção você quer?
                                     marcaDados.dataMarca = DateTime.Now;
                                     m.CadastrarMarca(marcaDados);
                                     break;
+                                    
                                 case "2":
                                     m.DeletarMarcas();
                                     break;
