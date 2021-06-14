@@ -28,7 +28,7 @@ namespace gerenciamentoProdutos.Classes
             usuarioDados.dataUsuario = DateTime.Now;
             u.Cadastrar(usuarioDados);
 
-            Console.WriteLine("fazendo login");
+            Console.WriteLine("Fazendo login");
             Console.WriteLine("Confirme seu email");
             usuarioDados.email = Console.ReadLine();
             Console.WriteLine("Confirme sua senha");
@@ -39,10 +39,12 @@ namespace gerenciamentoProdutos.Classes
 
             do
             {
-Console.WriteLine($@"Qual opção você quer?
-1- Marca
-2- Produto
-3- Deslogar");
+                Console.WriteLine($@"-------------------------
+| Qual opção você quer? |
+| 1- Marca              |
+| 2- Produto            |
+| 3- Deslogar           |
+-------------------------");
 
                 switch (Console.ReadLine())
                 {
@@ -50,11 +52,13 @@ Console.WriteLine($@"Qual opção você quer?
                         string resposta;
                         do
                         {
-Console.WriteLine($@"Qual opção você quer?
-1- Cadastrar marca
-2- Deletar marca
-3- Ver marcas
-4- Voltar");
+                            Console.WriteLine($@"-------------------------
+                | Qual opção você quer? |
+                | 1- Cadastrar marca    |
+                | 2- Deletar marca      |
+                | 3- Ver marcas         |
+                | 4- Voltar             |
+                -------------------------");
                             resposta = Console.ReadLine();
                             switch (resposta)
                             {
@@ -94,11 +98,14 @@ Console.WriteLine($@"Qual opção você quer?
                         break;
 
                     case "2":
-                        Console.WriteLine($@"Qual opção você quer?
-1- Cadastrar produto
-2- Deletar produto
-3- Ver produtos
-4- Voltar");
+                        Console.WriteLine($@"
+                        -------------------------
+| Qual opção você quer? |
+| 1- Cadastrar produto  |
+| 2- Deletar produto    |
+| 3- Ver produtos       |
+| 4- Voltar             |
+-------------------------");
                         resposta = Console.ReadLine();
                             bool sair = false;
                         // do
